@@ -796,3 +796,68 @@ body.night {
 .status-bars .progress:nth-child(3) {
     margin-bottom: 1000px;
 }
+
+
+#landing-logo {
+    display: flex;
+    justify-content: between;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* Full viewport height */
+}
+
+div {
+    position: relative;
+    height: 100vh;
+    /* Full viewport height */
+}
+
+img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Centers both vertically and horizontally */
+}
+
+/* Make the navbar stick to the top */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Center the navbar horizontally */
+    background-color: #333;
+    /* Optional: Background color */
+    padding: 10px 0;
+    /* Optional: Padding for spacing */
+    z-index: 1000;
+    /* Ensure it stays above other elements */
+}
+
+/* Style the buttons */
+.nav-button {
+    color: white;
+    /* Text color */
+    text-decoration: none;
+    /* Remove underline */
+    padding: 10px 15px;
+    /* Add padding for spacing */
+    margin: 0 5px;
+    /* Compress buttons by reducing margin */
+    background-color: #555;
+    /* Button background color */
+    border-radius: 5px;
+    /* Optional: Rounded corners */
+    transition: background-color 0.3s ease;
+    /* Smooth hover effect */
+}
+
+/* Hover effect for buttons */
+.nav-button:hover {
+    background-color: #777;
+    /* Change background on hover */
+}

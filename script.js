@@ -22,6 +22,7 @@ const PAGE = {
         const greetingEl = document.getElementById("greeting");
         greetingEl.textContent = g.text;
         greetingEl.id = g.glow;
+        setTimeout(() => window.location.replace("about.html"), 3000);
     }
 }
 window.addEventListener("DOMContentLoaded", PAGE.greeting);

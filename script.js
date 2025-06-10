@@ -1,3 +1,4 @@
+"use strict";
 //Landing Page ONLY
 const DOC = {
     e: document,
@@ -27,9 +28,7 @@ const PAGE = {
     }
 }
 window.addEventListener("DOMContentLoaded", PAGE.greeting);
-
 // ABOUT PAGE/OTHER PAGES
-
 // Function to set main background based on time
 function setMainBackground() {
     const main = document.querySelector('main');

@@ -861,3 +861,11 @@ img {
     background-color: #777;
     /* Change background on hover */
 }
+
+#pgs {
+    margin: 10000px;
+    padding: 10000px;
+    padding-top: 100px;
+    margin-top: 100px;
+    color: white;
+}

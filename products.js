@@ -12,13 +12,13 @@ class imgZoom {
     }
     init() {
         const self = this;
-        this.img = window
+        this.img = `imgs/${window
             .getComputedStyle(this.src)
             .getPropertyValue("background")
             .match(/url\(["']?(.*?)["']?\)/)
             .at(-1)
             .split("/")
-            .at(-1);
+            .at(-1)}`;
         this.bgSize = window
             .getComputedStyle(this.src)
             .getPropertyValue("background-size")
@@ -160,8 +160,7 @@ class Product {
             "col-12",
             "col-sm-6",
             "col-md-4",
-            "col-xl-3",
-            "col-xxl-2"
+            "col-xl-3"
         );
         const card = create("div", `${this.name}_card`, "product_card");
         let name = this.name;
@@ -246,7 +245,7 @@ class Product {
         body.append(contentSection);
         //
         const logoImg = create("img", "", "info-logo");
-        logoImg.src = "TEST.jpg";
+        logoImg.src = "imgs/Alternate Logo 1.png";
         contentSection.append(logoImg);
         let rating = create("div", "", "card-rating");
         let count = new Array(2).fill(0);
@@ -323,10 +322,10 @@ class Product {
             set bg(arg) {
                 this.src.setAttribute(
                     "style",
-                    `background: url(${arg}); background-size: 150% 100%;`
+                    `background: url(${arg}); background-size: 125% 100%;`
                 );
                 this._bg = arg;
-                this.zoom = new imgZoom(this.src, 6);
+                this.zoom = new imgZoom(this.src, 4);
             },
         };
         imgSection.append(mainImg.src);

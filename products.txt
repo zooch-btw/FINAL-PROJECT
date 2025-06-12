@@ -1,3 +1,6 @@
-Toy Train@$13.99@Made from birch wood/Handcarved and top quality@rating@4  Fantastic gift, definitely recommend./3  Awesome quality.@imgs/car1.jpg&imgs/car2.jpg&imgs/car3.jpg@related/related^
-Toy Boat@price@details/details@rating@5  review/5  review / 5  review@TEST2.jpg/TEST.jpg@related/related^
-Building Blocks@price@details/details@rating@2  review/2  review / 3  review@TEST2.jpg/TEST.jpg@related/related
+Toy Car@$13.99@Made from birch wood/Handcarved and top quality@rating@4  Fantastic gift, definitely recommend./3  Awesome quality.@imgs/car1.jpg&imgs/car2.jpg&imgs/car3.jpg@related/related^
+Toy Boat@$14.99@Set sail for bathtub adventures with this adorable wooden boat!/Made from solid Maine white pine, this handcrafted toy floats and features rounded edges for safety. Includes two peg "lobster people."/Size: 10.5"W x 3.5"H@rating@5  review/5  review / 5  review@imgs/boat1.jpg&imgs/boat2.jpg@related/related^
+Building Blocks@price@details/details@rating@2  review/2  review / 3  review@TEST2.jpg/TEST.jpg@related/related^
+
+
+DEMONAME@DEMOPRICE@DETAILS/DETAILS@RATING@2  review/5  review@IMG1.png&IMG2.png@related/related

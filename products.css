@@ -146,7 +146,7 @@ body {
     aspect-ratio: 4/3;
     min-width: 400px;
     min-height: 400px;
-    max-height: calc(90vh);
+    max-height: calc(90vh - 120px);
     position: fixed;
     top: 50vh;
     left: 50%;

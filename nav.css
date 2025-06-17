@@ -63,6 +63,10 @@ h3,
     }
 }
 
+.birdi {
+    height: 80px;
+}
+
 .navbar-nav .nav-link.active,
 .dropdown-item.active {
     color: #ff2a44 !important;

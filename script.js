@@ -1,35 +1,7 @@
 "use strict";
-//Landing Page ONLY
-const DOC = {
-    e: document,
-    get(arg) {
-        return this.e.querySelector(arg);
-    },
-    getALL(arg) {
-        return Array.from(this.e.querySelectorAll(arg));
-    }
+function backToTop() {
+    console.log("here")
 }
-const PAGE = {
-    greeting() {
-        const greetings = [
-            { start: 5, end: 11, text: "Good morning!", cls: "morning", glow: "VictoryTxt" },
-            { start: 11, end: 17, text: "Good afternoon!", cls: "afternoon", glow: "VictoryTxt" },
-            { start: 17, end: 22, text: "Good evening!", cls: "evening", glow: "LossTxt" },
-            { start: 22, end: 24, text: "Good night!", cls: "night", glow: "LossTxt" },
-            { start: 0, end: 5, text: "Good night!", cls: "night", glow: "LossTxt" }
-        ];
-        const hr = new Date().getHours();
-        const g = greetings.find(({ start, end }) => hr >= start && hr < end);
-        document.body.classList.add(g.cls);
-        const greetingEl = document.getElementById("greeting");
-        greetingEl.textContent = g.text;
-        greetingEl.id = g.glow;
-        setTimeout(() => window.location.replace("about.html"), 3000);
-    }
-}
-window.addEventListener("DOMContentLoaded", PAGE.greeting);
-// ABOUT PAGE/OTHER PAGES
-// Function to set main background based on time
 function setMainBackground() {
     const main = document.querySelector('main');
     const now = new Date();
@@ -46,6 +18,12 @@ function setMainBackground() {
         main.style.background = 'linear-gradient(135deg, #0d1b2a 0%, #0a0a23 100%)'; // nebulaDark
     }
 }
-
-// Run on page load
-setMainBackground();
+function activate() {
+    console.log("here")
+    document.addEventListener('DOMContentLoaded', setMainBackground);
+    setInterval(setMainBackground, 60000);
+    document.querySelector("main").addEventListener("scroll", () => {
+        console.log("potato")
+    })
+}
+activate()

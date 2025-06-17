@@ -9,6 +9,7 @@ body {
     scroll-behavior: smooth;
     overflow-x: hidden;
     transition: background 0.5s;
+    padding-top: 9px;
 }
 
 h1,

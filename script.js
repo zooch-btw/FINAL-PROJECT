@@ -88,6 +88,11 @@ function activate() {
     window.addEventListener("resize", () => {
       if (window.innerWidth >= 992)
         equalHeight(Array.from(document.querySelectorAll("section .text-box")));
+      else {
+        Array.from(document.querySelectorAll("section .text-box")).forEach(
+          (e) => e.setAttribute("style", "height: auto")
+        );
+      }
     });
   }
 }

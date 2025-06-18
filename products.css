@@ -148,7 +148,7 @@ body {
     min-height: 400px;
     max-height: calc(90vh - 120px);
     position: fixed;
-    top: 50vh;
+    top: calc(50vh + 60px);
     left: 50%;
     transform: translate(-50%, -50%);
     background: linear-gradient(-45deg, rgb(255, 225, 169), white);

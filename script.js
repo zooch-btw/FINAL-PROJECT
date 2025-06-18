@@ -16,7 +16,7 @@ const navbar = `<nav class="navbar navbar-expand-lg" id="main-nav">
                                 Menu
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item active" href="about.html" aria-current="page">About Us</a>
+                                <li><a class="dropdown-item" href="about.html" aria-current="page">About Us</a>
                                 </li>
                                 <li><a class="dropdown-item" href="products.html">Product Gallery</a></li>
                                 <li><a class="dropdown-item" href="contact.html">Contact
@@ -48,12 +48,16 @@ function setMainBackground() {
     }
 }
 function activate() {
-    console.log("here")
     document.addEventListener('DOMContentLoaded', setMainBackground);
     setInterval(setMainBackground, 60000);
     document.querySelector("main").addEventListener("scroll", () => {
         console.log("potato")
     })
     document.querySelector("header").insertAdjacentHTML("afterbegin", navbar)
+    let liList = Array.from(document.querySelectorAll(".dropdown-item"))
+    liList.forEach(e => {
+        let href = Array.from(document.body.classList).at(-1);
+        if (e.href.split("/").at(-1).includes(href + ".html")) e.classList.add("active");
+    })
 }
 window.onload = activate()

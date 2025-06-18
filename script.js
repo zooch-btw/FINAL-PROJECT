@@ -1,4 +1,33 @@
 "use strict";
+const navbar = `<nav class="navbar navbar-expand-lg" id="main-nav">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="imgs/Little Bird Toys Logo (1).png" class="birdie"
+                        alt="al1"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item active" href="about.html" aria-current="page">About Us</a>
+                                </li>
+                                <li><a class="dropdown-item" href="products.html">Product Gallery</a></li>
+                                <li><a class="dropdown-item" href="contact.html">Contact
+                                        Us!</a></li>
+                                <li><a class="dropdown-item" href="index.html">Restart the experience!</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>`
 function backToTop() {
     console.log("here")
 }
@@ -25,5 +54,6 @@ function activate() {
     document.querySelector("main").addEventListener("scroll", () => {
         console.log("potato")
     })
+    document.querySelector("header").insertAdjacentHTML("afterbegin", navbar)
 }
-activate()
+window.onload = activate()

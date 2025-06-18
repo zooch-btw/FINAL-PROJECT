@@ -1,7 +1,7 @@
 "use strict";
 const navbar = `<nav class="navbar navbar-expand-lg" id="main-nav">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="imgs/Little Bird Toys Logo (1).png" class="birdie" style="border-radius: 100%;"
+                <a class="navbar-brand" href="index.html"><img src="imgs/Little Bird Toys Logo (1).png" class="birdie""
                         alt="al1"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -28,6 +28,9 @@ const navbar = `<nav class="navbar navbar-expand-lg" id="main-nav">
                 </div>
             </div>
         </nav>`;
+const footer = `<div class="container">
+            <p class="mb-0">Created by Salvatore, Remy, and Liz | © 2025</p>
+        </div>`;
 function backToTop() {
   if (document.querySelector("main").scrollTop >= 150) {
     console.log("potato");
@@ -67,6 +70,7 @@ function activate() {
   setInterval(setMainBackground, 60000);
   document.querySelector("main").addEventListener("scroll", backToTop);
   document.querySelector("header").insertAdjacentHTML("afterbegin", navbar);
+  document.querySelector("footer").insertAdjacentHTML("afterbegin", footer);
   let liList = Array.from(document.querySelectorAll(".dropdown-item"));
   liList.forEach((e) => {
     let href = Array.from(document.body.classList).at(-1);
@@ -79,9 +83,11 @@ function activate() {
       e.classList.add("active");
   });
   if (document.body.classList.contains("about")) {
-    equalHeight(Array.from(document.querySelectorAll("section .text-box")));
-    window.addEventListener("resize", () => {
+    if (window.innerWidth >= 992)
       equalHeight(Array.from(document.querySelectorAll("section .text-box")));
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 992)
+        equalHeight(Array.from(document.querySelectorAll("section .text-box")));
     });
   }
 }

@@ -66,11 +66,8 @@ body.night {
   background: linear-gradient(135deg, #0d1b2a 0%, #0a0a23 100%);
 }
 #landing-logo {
-  display: flex;
-  justify-content: between;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+  object-fit: cover;
 }
 div {
   position: relative;

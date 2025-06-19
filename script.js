@@ -31,10 +31,14 @@ const navbar = `<nav class="navbar navbar-expand-lg" id="main-nav">
 const footer = `<div class="container">
             <p class="mb-0">Created by Salvatore, Remy, and Liz | © 2025</p>
         </div>`;
+const toTop = `
+<div class="toTop d-none">Top</div>
+`;
 function backToTop() {
-  if (document.querySelector("main").scrollTop >= 150) {
-    console.log("potato");
-  }
+  const toTop = document.querySelector(".toTop");
+  const main = document.querySelector("main");
+  if (main.scrollTop >= 150) toTop.classList.remove("d-none");
+  else toTop.classList.add("d-none");
 }
 function setMainBackground() {
   const main = document.querySelector("main");
@@ -68,32 +72,40 @@ function equalHeight(arr) {
 function activate() {
   document.addEventListener("DOMContentLoaded", setMainBackground);
   setInterval(setMainBackground, 60000);
-  document.querySelector("main").addEventListener("scroll", backToTop);
-  document.querySelector("header").insertAdjacentHTML("afterbegin", navbar);
-  document.querySelector("footer").insertAdjacentHTML("afterbegin", footer);
-  let liList = Array.from(document.querySelectorAll(".dropdown-item"));
-  liList.forEach((e) => {
-    let href = Array.from(document.body.classList).at(-1);
-    if (
-      e.href
-        .split("/")
-        .at(-1)
-        .includes(href + ".html")
-    )
-      e.classList.add("active");
-  });
-  if (document.body.classList.contains("about")) {
-    if (window.innerWidth >= 992)
-      equalHeight(Array.from(document.querySelectorAll("section .text-box")));
-    window.addEventListener("resize", () => {
+  if (!document.body.classList.contains("index")) {
+    document.querySelector("main").addEventListener("scroll", backToTop);
+    document.querySelector("header").insertAdjacentHTML("afterbegin", navbar);
+    document.querySelector("footer").insertAdjacentHTML("afterbegin", footer);
+    let liList = Array.from(document.querySelectorAll(".dropdown-item"));
+    liList.forEach((e) => {
+      let href = Array.from(document.body.classList).at(-1);
+      if (
+        e.href
+          .split("/")
+          .at(-1)
+          .includes(href + ".html")
+      )
+        e.classList.add("active");
+    });
+    document.body.insertAdjacentHTML("beforeend", toTop);
+    document.querySelector(".toTop").addEventListener("click", () => {
+      document.querySelector("main").scrollTo(0, 0);
+    });
+    if (document.body.classList.contains("about")) {
       if (window.innerWidth >= 992)
         equalHeight(Array.from(document.querySelectorAll("section .text-box")));
-      else {
-        Array.from(document.querySelectorAll("section .text-box")).forEach(
-          (e) => e.setAttribute("style", "height: auto")
-        );
-      }
-    });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 992)
+          equalHeight(
+            Array.from(document.querySelectorAll("section .text-box"))
+          );
+        else {
+          Array.from(document.querySelectorAll("section .text-box")).forEach(
+            (e) => e.setAttribute("style", "height: auto")
+          );
+        }
+      });
+    }
   }
 }
 window.onload = activate();

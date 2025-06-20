@@ -19,6 +19,9 @@ body {
   overflow-x: hidden;
   transition: background 0.5s;
 }
+* {
+  scroll-behavior: smooth;
+}
 body::-webkit-scrollbar {
   display: none;
 }
@@ -138,10 +141,11 @@ main {
   flex-grow: 1;
   min-height: calc(100vh - 104px);
   padding: 4rem 2rem;
-  padding-top: calc(4rem + 100px);
+  padding-top: calc(4rem + 90px);
   background: linear-gradient(135deg, var(--dark), var(--dark2));
   overflow-y: auto;
   width: 100vw;
+  height: 100vh;
   padding-bottom: 48px;
   scrollbar-width: 0;
   -ms-overflow-style: none;
@@ -622,17 +626,57 @@ footer {
   z-index: 5;
   cursor: pointer;
 }
+.headerImage {
+  height: 120px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: drop-shadow(0px 0px 5px var(--white)) drop-shadow(0px 0px 3px var(--dark));
+}
 .searchRow {
   height: 50px;
   width: 100%;
-  background: red;
   display: flex;
   justify-content: center;
+  position: relative;
   align-items: center;
-  margin-top: 120px;
-
-  input {
+  margin-bottom: 10px;
+  input[type="text"] {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
+  input[type="button"] {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: var(--globalTransition);
+  }
+  input[type="button"]:hover {
+    filter: brightness(0.8);
+  }
+  input {
+    font-style: italic;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    padding-left: 7px;
+    border: none;
+  }
+}
+.searchRow::before,
+.searchRow::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: var(--red);
+  left: 50%;
+  transform: translateX(-50%);
+  mask-image: linear-gradient(to right, transparent, white, transparent);
+}
+.searchRow::before {
+  top: 0;
+}
+.searchRow::after {
+  bottom: 0;
 }
 .toTop {
   width: 60px;

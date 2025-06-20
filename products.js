@@ -285,6 +285,34 @@ class Product {
     const h1 = create("h1", "", "info-heading");
     h1.textContent = this.name;
     contentSection.append(h1);
+    const h2 = create("h2", "", "info-price");
+    h2.textContent = this.price;
+    contentSection.append(h2);
+    contentSection.append(create("hr"));
+    const colorPickContainer = create(
+      "div",
+      "",
+      "info-colorPickerContainer",
+      "row",
+      "g-3"
+    );
+    const colors = ["Natural", "Blue", "Red", "Green"];
+    const options = new Array(4).fill("0").map((v, i) => {
+      let elem = create(
+        "div",
+        "",
+        "info-color-option",
+        "col-12",
+        "col-sm-6",
+        "col-md-4",
+        "col-lg-3"
+      );
+
+      elem.textContent = colors[i];
+      return elem;
+    });
+    options.forEach((e) => colorPickContainer.append(e));
+    contentSection.append(colorPickContainer);
     contentSection.append(create("hr"));
     let X = create("span", "", "closeBtn");
     X.insertAdjacentHTML(
@@ -394,6 +422,38 @@ class Product {
     PRODUCTS.list[i1].build(alternate);
     PRODUCTS.list[i2].build(alternate);
     PRODUCTS.list[i3].build(alternate);
+    options.forEach((e) => {
+      e.addEventListener("click", () => {
+        switch (e.textContent) {
+          case "Blue":
+            document.querySelector(".info-mainImg").classList.add("blue");
+            document
+              .querySelector(".info-mainImg")
+              .classList.remove("green", "red");
+            break;
+          case "Green":
+            document.querySelector(".info-mainImg").classList.add("green");
+            document
+              .querySelector(".info-mainImg")
+              .classList.remove("blue", "red");
+            break;
+          case "Red":
+            document.querySelector(".info-mainImg").classList.add("red");
+            document
+              .querySelector(".info-mainImg")
+              .classList.remove("green", "blue");
+            break;
+          case "Netural":
+            document
+              .querySelector(".info-mainImg")
+              .classList.remove("blue", "green", "red");
+            break;
+          default:
+            console.log(e.textContent);
+            break;
+        }
+      });
+    });
   }
 }
 class autoCarousel {
@@ -451,7 +511,7 @@ const PRODUCTS = {
             PRODUCTS.search(document.querySelector("input[type='text']").value);
           });
       })
-      .catch((error) => alert(error));
+      .catch((error) => console.error(error));
   },
   search(arg = null) {
     if (arg != null && arg.length > 0) {

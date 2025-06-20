@@ -116,6 +116,11 @@ h3,
   .navbar-collapse {
     justify-content: center;
   }
+  .navbar-toggler {
+    filter: drop-shadow(0px 0px 3px var(--white))
+      drop-shadow(0px 0px 3px var(--red));
+    box-shadow: 0px 0px 3px var(--white), 0px 0px 3px var(--red);
+  }
 }
 @keyframes glowBorder {
   0%,
@@ -200,7 +205,12 @@ main.night {
   background: linear-gradient(135deg, var(--dark), var(--dark2));
 }
 footer {
-  background: linear-gradient(135deg, var(--dark), var(--dark2));
+  background: linear-gradient(
+    to top,
+    var(--dark) 0%,
+    #0d1b2ae6 100%
+  ) !important;
+
   color: var(--white);
   padding: 1rem;
   width: 100%;
@@ -251,6 +261,10 @@ footer {
   }
 }
 /*Products Page CSS*/
+#cardRow {
+  display: flex;
+  justify-content: center;
+}
 .lens {
   height: 200px;
   width: 200px;
@@ -275,7 +289,6 @@ footer {
   box-shadow: 0px 0px 5px rgb(51, 25, 0);
   overflow: clip;
   margin-bottom: 20px;
-
   .carousel {
     border-radius: 10px 10px 0px 0px;
     height: 50%;
@@ -297,21 +310,19 @@ footer {
       }
     }
   }
-
   .content {
     height: 50%;
     width: 100%;
     position: relative;
     border-radius: 0px 0px 10px 10px;
-
     .heading {
       text-align: center;
       margin: -15px !important;
-      padding: 0 !important;
-      font-family: "Corinthia", serif;
-      font-size: 60px;
+      padding: 10px 0px 10px 0px !important;
+      font-family: "Fascinate", serif;
+      font-style: italic;
+      font-size: 32px;
     }
-
     .card-rating {
       display: flex;
       justify-content: start;
@@ -336,7 +347,6 @@ footer {
         text-decoration: underline;
       }
     }
-
     .card-price {
       text-align: center;
       font-family: "Fascinate", sans-serif;
@@ -346,7 +356,6 @@ footer {
       justify-content: center;
       align-items: center;
     }
-
     .see-more {
       cursor: pointer;
       width: 100%;
@@ -361,7 +370,6 @@ footer {
       background: linear-gradient(to bottom, transparent, rgb(112, 108, 105));
       transition: 0.1s;
     }
-
     .see-more:hover {
       filter: brightness(0.8);
     }
@@ -384,11 +392,9 @@ footer {
   z-index: 100;
   border: 8px double var(--brown);
   border-radius: 10px;
-
   .info-body {
     display: flex;
     height: 100%;
-
     .info-section {
       width: 50%;
       height: 100%;
@@ -396,59 +402,59 @@ footer {
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
-
     .info-section::-webkit-scrollbar {
       display: none;
     }
-
     .info-img {
       border-right: 2px solid var(--brown);
-
       .info-mainImg {
         height: 60%;
         border-bottom: 4px solid var(--brown);
       }
-
+      .info-mainImg.blue {
+        filter: hue-rotate(160deg);
+      }
+      .info-mainImg.red {
+        filter: hue-rotate(-50deg);
+      }
+      .info-mainImg.green {
+        filter: hue-rotate(110deg);
+      }
       .info-subImgs {
         cursor: pointer;
         height: 40%;
         width: 100%;
         display: flex;
         filter: contrast(0.5) brightness(0.8);
-
         img {
           object-fit: cover;
         }
-
         img:nth-child(1) {
           border-right: 2px solid var(--brown);
         }
-
         img:nth-child(2) {
           border-left: 2px solid var(--brown);
         }
-
         img:hover {
           filter: brightness(110%) sepia(100%) hue-rotate(160deg) saturate(200%);
         }
       }
     }
-
     .info-content {
       border-left: 2px solid var(--brown);
       padding-top: 55px;
       overflow-y: auto;
       overflow-x: hidden;
-
       h1 {
-        font-family: "Corinthia", serif;
-        font-size: 60px;
+        font-family: "Fascinate", serif;
+        font-size: 50px;
+        font-style: italic;
         text-align: center;
         margin: -10px;
         margin-top: -5px;
         padding: 0;
+        padding-bottom: 10px;
       }
-
       .info-logo {
         height: 150px;
         position: absolute;
@@ -457,7 +463,20 @@ footer {
         transform: translateX(-50%);
         z-index: -1;
       }
-
+      .info-colorPickerContainer {
+        padding-right: 10px;
+        margin-right: 5px;
+        margin-left: 5px;
+        .info-color-option {
+          height: 20px;
+          box-shadow: 0px 0px 3px var(--dark);
+          border: 4px double (var(--brown));
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #ffd993;
+        }
+      }
       .card-rating {
         text-align: right;
         padding-right: 10px;
@@ -473,7 +492,6 @@ footer {
           margin-left: 5px;
         }
       }
-
       .info-alternate {
         display: flex;
         justify-content: start;
@@ -527,7 +545,6 @@ footer {
           }
         }
       }
-
       hr {
         background: black;
         height: 1px;
@@ -543,12 +560,11 @@ footer {
         margin-left: auto;
         margin-right: auto;
       }
-
       .detailsList {
         list-style-type: "-  ";
         font-style: italic;
+        padding-right: 10px;
       }
-
       .cartBtnContainer {
         display: flex;
         justify-content: end;
@@ -577,12 +593,10 @@ footer {
           transform: scale(1.02);
         }
       }
-
       .reviewContainer {
         list-style-type: "-  ";
         font-style: italic;
-        padding-right: 5px;
-
+        padding-right: 10px;
         .reviewStars {
           margin-right: 3px;
 
@@ -594,7 +608,6 @@ footer {
           }
         }
       }
-
       .closeBtn {
         cursor: pointer;
         position: fixed;
@@ -609,7 +622,6 @@ footer {
           height: 20px;
         }
       }
-
       .closeBtn:hover {
         transform: scale(1.1);
         filter: drop-shadow(0px 0px 3px black);
@@ -631,7 +643,8 @@ footer {
   width: 100%;
   object-fit: cover;
   object-position: center;
-  filter: drop-shadow(0px 0px 5px var(--white)) drop-shadow(0px 0px 3px var(--dark));
+  filter: drop-shadow(0px 0px 5px var(--white))
+    drop-shadow(0px 0px 3px var(--dark));
 }
 .searchRow {
   height: 50px;

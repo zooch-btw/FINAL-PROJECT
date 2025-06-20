@@ -1,11 +1,12 @@
 html,
 body {
   --white: #f0f8ff;
-  --red: rgb(255, 42, 68);
+  --red: #ff2a44;
   --dark: #0d1b2a;
   --dark2: #0a0a23;
   --globalTransition: 0.3s;
   --yellow: #ffd700;
+  --bgTransparent: 0.9;
   height: 100%;
   width: 100%;
   margin: 0;
@@ -80,6 +81,7 @@ h3,
     width: inherit;
     justify-content: center;
     position: relative;
+    display: flex;
     .nav-link {
       color: var(--white) !important;
       font-size: 1.6rem;
@@ -112,14 +114,6 @@ h3,
         background: none !important;
       }
     }
-  }
-  .navbar-collapse {
-    justify-content: center;
-  }
-  .navbar-toggler {
-    filter: drop-shadow(0px 0px 3px var(--white))
-      drop-shadow(0px 0px 3px var(--red));
-    box-shadow: 0px 0px 3px var(--white), 0px 0px 3px var(--red);
   }
 }
 @keyframes glowBorder {
@@ -163,9 +157,10 @@ main {
     max-width: 800px;
     margin: 0 auto 1.5rem;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.568);
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.295);
+    color: var(--dark);
   }
   .text-box h2 {
     font-size: 2.5rem;
@@ -193,16 +188,36 @@ main::-webkit-scrollbar {
   display: none;
 }
 main.morning {
-  background: linear-gradient(135deg, var(--red), var(--yellow));
+  background: linear-gradient(
+      135deg,
+      rgba(255, 42, 68, var(--bgTransparent)),
+      rgba(255, 215, 0, var(--bgTransparent))
+    ),
+    url("imgs/vines1.jpg");
 }
 main.afternoon {
-  background: linear-gradient(135deg, #1e90ff, #00e6e6);
+  background: linear-gradient(
+      135deg,
+      rgba(30, 144, 255, var(--bgTransparent)),
+      rgba(0, 230, 230, var(--bgTransparent))
+    ),
+    url("imgs/vines1.jpg");
 }
 main.evening {
-  background: linear-gradient(135deg, #6a0dad, #2a1b3d);
+  background: linear-gradient(
+      135deg,
+      rgb(106, 13, 173, var(--bgTransparent)),
+      rgb(42, 27, 61, var(--bgTransparent))
+    ),
+    url("imgs/vines1.jpg");
 }
 main.night {
-  background: linear-gradient(135deg, var(--dark), var(--dark2));
+  background: linear-gradient(
+      135deg,
+      rgba(13, 27, 42, var(--bgTransparent)),
+      rgba(10, 10, 35, var(--bgTransparent))
+    ),
+    url("imgs/vines1.jpg");
 }
 footer {
   background: linear-gradient(
@@ -464,9 +479,10 @@ footer {
         z-index: -1;
       }
       .info-colorPickerContainer {
-        padding-right: 10px;
+        padding-right: 5px;
         margin-right: 5px;
         margin-left: 5px;
+        user-select: none;
         .info-color-option {
           height: 20px;
           box-shadow: 0px 0px 3px var(--dark);
@@ -475,6 +491,11 @@ footer {
           justify-content: center;
           align-items: center;
           background: #ffd993;
+          cursor: pointer;
+          transition: var(--globalTransition);
+        }
+        .info-color-option:hover {
+          background: #dab97c;
         }
       }
       .card-rating {

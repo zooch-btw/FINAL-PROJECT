@@ -304,8 +304,7 @@ class Product {
         "info-color-option",
         "col-12",
         "col-sm-6",
-        "col-md-4",
-        "col-lg-3"
+        "col-md-3"
       );
 
       elem.textContent = colors[i];
@@ -377,7 +376,10 @@ class Product {
     }
     //
     contentSection.append(create("hr"));
+    const alternateH = create("h3", "", "info-alterateH");
+    alternateH.textContent = "People also purchased:"
     const alternate = create("div", "", "info-alternate");
+    contentSection.append(alternateH)
     contentSection.append(alternate);
     contentSection.append(create("hr", `${name}Reviews`));
     const reviewContainer = create("ul", "", "reviewContainer");
@@ -426,27 +428,19 @@ class Product {
       e.addEventListener("click", () => {
         switch (e.textContent) {
           case "Blue":
-            document.querySelector(".info-mainImg").classList.add("blue");
-            document
-              .querySelector(".info-mainImg")
-              .classList.remove("green", "red");
+            mainImg.src.classList.add("blue");
+            mainImg.src.classList.remove("green", "red");
             break;
           case "Green":
-            document.querySelector(".info-mainImg").classList.add("green");
-            document
-              .querySelector(".info-mainImg")
-              .classList.remove("blue", "red");
+            mainImg.src.classList.add("green");
+            mainImg.src.classList.remove("blue", "red");
             break;
           case "Red":
-            document.querySelector(".info-mainImg").classList.add("red");
-            document
-              .querySelector(".info-mainImg")
-              .classList.remove("green", "blue");
+            mainImg.src.classList.add("red");
+            mainImg.src.classList.remove("green", "blue");
             break;
-          case "Netural":
-            document
-              .querySelector(".info-mainImg")
-              .classList.remove("blue", "green", "red");
+          case "Natural":
+            mainImg.src.classList.remove("blue", "green", "red");
             break;
           default:
             console.log(e.textContent);

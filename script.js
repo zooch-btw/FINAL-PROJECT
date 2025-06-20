@@ -1,17 +1,11 @@
 "use strict";
-const navbar = `<nav class="navbar navbar-expand-lg" id="main-nav">
+const navbar = `<nav class="navbar navbar-expand" id="main-nav">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="imgs/Little Bird Toys Logo (1).png" class="birdie""
+                <a class="navbar-brand flex-shrink-0" href="index.html"><img src="imgs/Little Bird Toys Logo (1).png" class="birdie""
                         alt="al1"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav d-flex justify-content-sm-end justify-content-md-center">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Menu
                             </a>
@@ -25,7 +19,6 @@ const navbar = `<nav class="navbar navbar-expand-lg" id="main-nav">
                             </ul>
                         </li>
                     </ul>
-                </div>
             </div>
         </nav>`;
 const footer = `<div class="container">
@@ -48,16 +41,24 @@ function setMainBackground() {
   // Define time ranges
   if (hours >= 6 && hours < 12) {
     // Morning: 6:00 AM - 11:59 AM
-    main.style.background = "linear-gradient(135deg, #ff2a44 0%, #ffd700 100%)"; // heroRed, infinityGold
+    // main.style.background = "linear-gradient(135deg, #ff2a44 0%, #ffd700 100%)"; // heroRed, infinityGold
+    main.classList.add("morning");
+    main.classList.remove("afternoon", "evening", "night");
   } else if (hours >= 12 && hours < 18) {
     // Afternoon: 12:00 PM - 5:59 PM
-    main.style.background = "linear-gradient(135deg, #1e90ff 0%, #00e6e6 100%)"; // cosmicBlue
+    // main.style.background = "linear-gradient(135deg, #1e90ff 0%, #00e6e6 100%)"; // cosmicBlue
+    main.classList.add("afternoon");
+    main.classList.remove("moring", "evening", "night");
   } else if (hours >= 18 && hours < 24) {
     // Evening: 6:00 PM - 11:59 PM
-    main.style.background = "linear-gradient(135deg, #6a0dad 0%, #2a1b3d 100%)"; // vibrantPurple
+    // main.style.background = "linear-gradient(135deg, #6a0dad 0%, #2a1b3d 100%)"; // vibrantPurple
+    main.classList.add("evening");
+    main.classList.remove("afternoon", "morning", "night");
   } else {
     // Night: 12:00 AM - 5:59 AM
-    main.style.background = "linear-gradient(135deg, #0d1b2a 0%, #0a0a23 100%)"; // nebulaDark
+    // main.style.background = "linear-gradient(135deg, #0d1b2a 0%, #0a0a23 100%)"; // nebulaDark
+    main.classList.add("night");
+    main.classList.remove("afternoon", "evening", "morning");
   }
 }
 function equalHeight(arr) {

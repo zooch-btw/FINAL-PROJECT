@@ -337,7 +337,10 @@ class Product {
     contentSection.append(detailsList);
     const cartBtnContainer = create("div", "", "cartBtnContainer");
     const cartBtn = create("div", "", "info-cartBtn");
-    // cartBtnContainer.append(cartBtn);
+    cartBtn.addEventListener("click", () => {
+      CART.add(self);
+    });
+    cartBtnContainer.append(cartBtn);
     cartBtn.textContent = "Add to Cart";
     contentSection.append(cartBtnContainer);
     //
@@ -450,6 +453,7 @@ class Product {
       });
     });
   }
+  buildCart(destination) {}
 }
 class autoCarousel {
   imgs;
@@ -527,8 +531,14 @@ const PRODUCTS = {
   },
 };
 const CART = {
+  list: [],
   add(param) {
-    console.log("added", param);
+    if (!this.list.includes(param)) this.list.push(param);
+    else alert("Already in your cart :)");
+    document.querySelector(".numberIcon").textContent = this.list.length;
+    const list = document.querySelector(".cart .list");
+    list.innerHTML = "";
+    this.list.forEach(e => list.append(e.name));
   },
 };
 function create(tag, id = "", ...classes) {

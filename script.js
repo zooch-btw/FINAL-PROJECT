@@ -27,6 +27,7 @@ const footer = `<div class="container">
 const toTop = `
 <div class="toTop d-none">Top</div>
 `;
+let cartIn = true;
 function backToTop() {
   const toTop = document.querySelector(".toTop");
   const main = document.querySelector("main");
@@ -105,6 +106,19 @@ function activate() {
             (e) => e.setAttribute("style", "height: auto")
           );
         }
+      });
+    }
+    if (document.body.classList.contains("products")) {
+      document.querySelector(".tab").addEventListener("click", () => {
+        const cart = document.querySelector(".cart");
+        if (cartIn == true) {
+          cart.classList.add("cartOut");
+          cart.classList.remove("cartIn");
+        } else {
+          cart.classList.add("cartIn");
+          cart.classList.remove("cartOut");
+        }
+        cartIn = !cartIn;
       });
     }
   }

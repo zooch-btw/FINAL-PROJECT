@@ -161,7 +161,8 @@ class Product {
       "col-12",
       "col-sm-6",
       "col-md-4",
-      "col-xl-3"
+      "col-xl-3",
+      "col-xxl-2"
     );
     const card = create("div", `${this.name}_card`, "product_card");
     let name = this.name;
@@ -377,9 +378,9 @@ class Product {
     //
     contentSection.append(create("hr"));
     const alternateH = create("h3", "", "info-alterateH");
-    alternateH.textContent = "People also purchased:"
+    alternateH.textContent = "People also purchased:";
     const alternate = create("div", "", "info-alternate");
-    contentSection.append(alternateH)
+    contentSection.append(alternateH);
     contentSection.append(alternate);
     contentSection.append(create("hr", `${name}Reviews`));
     const reviewContainer = create("ul", "", "reviewContainer");

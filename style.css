@@ -779,7 +779,7 @@ footer {
   position: fixed;
   top: 107px;
   height: calc(100% - 107px);
-  width: 100%;
+  width: calc(100% - 50px);
   max-width: 300px;
   right: 0;
   transform: translateX(100%);
@@ -836,6 +836,86 @@ footer {
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    .list {
+      height: calc(100% - 151px);
+      overflow-y: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: 0;
+      .cart-div {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        width: 95%;
+        height: 80px;
+        background: linear-gradient(
+            45deg,
+            rgba(255, 152, 74, 0.4) 30%,
+            rgba(255, 255, 255, 0.4) 70%
+          ),
+          linear-gradient(to bottom, white 60%, wheat);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 0px 0px 2px var(--dark);
+        .cart-img-div {
+          width: 80px;
+          height: 80px;
+          padding: 5px;
+          img {
+            border: 1px solid var(--red);
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+          }
+        }
+        .cart-content {
+          width: calc(100% - 80px);
+          height: 100%;
+          .cart-h {
+            text-align: center;
+            position: relative;
+            height: 30%;
+          }
+          .cart-h::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            height: 2px;
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            mask-image: linear-gradient(
+              to right,
+              transparent,
+              white,
+              transparent
+            );
+            background: var(--dark);
+          }
+          .cart-subrow {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 70%;
+            width: 100%;
+            input {
+              width: 40%;
+            }
+          }
+        }
+      }
+    }
+    .list::-webkit-scrollbar {
+      display: none;
+    }
+    .subtotal {
+      height: 100px;
+      width: 100%;
+      border-top: 1px solid var(--dark);
+      padding-top: 5px;
     }
   }
 }

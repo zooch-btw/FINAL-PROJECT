@@ -453,7 +453,29 @@ class Product {
       });
     });
   }
-  buildCart(destination) {}
+  buildCart(destination) {
+    const card = create("div", "", "cart-div");
+    const imgDiv = create("div", "", "cart-img-div");
+    const img = create("img", "cart-image");
+    img.src = this.images[0];
+    imgDiv.append(img);
+    card.append(imgDiv);
+    const content = create("div", "", "cart-content");
+    const h = create("h3", "", "cart-h");
+    h.textContent = this.name;
+    content.append(h);
+    card.append(content);
+    const input = create("input", "", "cart-input");
+    input.setAttribute("type", "number");
+    input.value = 1;
+    const subRow = create("div", "", "cart-subrow");
+    subRow.append(input);
+    const price = create("h3", "", "cart-price");
+    price.textContent = `${this.price}`;
+    subRow.append(price);
+    content.append(subRow)
+    destination.append(card);
+  }
 }
 class autoCarousel {
   imgs;
@@ -505,8 +527,8 @@ const PRODUCTS = {
           (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
         );
         document
-          .querySelector("input[type='text']")
-          .addEventListener("keyup", () => {
+          .querySelector("input[type='button']")
+          .addEventListener("click", () => {
             PRODUCTS.search(document.querySelector("input[type='text']").value);
           });
       })
@@ -538,7 +560,7 @@ const CART = {
     document.querySelector(".numberIcon").textContent = this.list.length;
     const list = document.querySelector(".cart .list");
     list.innerHTML = "";
-    this.list.forEach(e => list.append(e.name));
+    this.list.forEach((e) => e.buildCart(list));
   },
 };
 function create(tag, id = "", ...classes) {

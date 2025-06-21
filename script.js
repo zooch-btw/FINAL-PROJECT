@@ -3,7 +3,7 @@ const navbar = `<nav class="navbar navbar-expand" id="main-nav">
             <div class="container-fluid">
                 <a class="navbar-brand flex-shrink-0" href="index.html"><img src="imgs/Little Bird Toys Logo (1).png" class="birdie""
                         alt="al1"></a>
-                    <ul class="navbar-nav d-flex justify-content-sm-end justify-content-md-center">
+                    <ul class="navbar-nav d-flex justify-content-center">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">

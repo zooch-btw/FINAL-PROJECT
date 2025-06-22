@@ -589,7 +589,7 @@ footer {
       }
       .cartBtnContainer {
         display: flex;
-        justify-content: end;
+        justify-content: center;
 
         .info-cartBtn {
           cursor: pointer;

@@ -546,6 +546,11 @@ const PRODUCTS = {
           .addEventListener("click", () => {
             PRODUCTS.search(document.querySelector("input[type='text']").value);
           });
+        document
+          .querySelector("input[type='text']")
+          .addEventListener("keyup", () => {
+            PRODUCTS.search(document.querySelector("input[type='text']").value);
+          });
       })
       .catch((error) => console.error(error));
   },
